@@ -40,7 +40,7 @@ Qi-Samples repository on GitHub.
 Getting help
 ============
 
-During the Qi preview the OSIsoft team will be available via email to
+During the Qi preview, the OSIsoft team will be available via email to
 help with any problems you may experience. To get help or provide
 feedback please contact
 `QiSupport@osisoft.com <Mailto:QiSupport@osisoft.com>`__ and visit
