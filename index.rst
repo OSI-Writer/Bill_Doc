@@ -48,9 +48,6 @@ feedback please contact
 more details.
 
 
-
-
-
 .. toctree::
    :maxdepth: 2
 
