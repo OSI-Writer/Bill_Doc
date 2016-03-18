@@ -12,17 +12,19 @@ Returns the type definition that is associated with a given stream from the spec
 
 ::
 
-    QiType GetStreamType(string namespaceId, string streamId);
-    Task<QiType> GetStreamTypeAsync(string namespaceId, string streamId);
+    QiType GetStreamType(string tenantId, string namespaceId, string streamId);
+    Task<QiType> GetStreamTypeAsync(string tenantId, string namespaceId, string streamId);
 
 *Http*
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Type
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Type
 
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 string ``namespaceId``
   The namespace identifier for the request
 string ``streamId``
@@ -50,17 +52,19 @@ Returns the type of the specified ``typeId`` from the specified namespace.
 
 ::
 
-    QiType GetType(string namespaceId, string typeId);
-    Task<QiType> GetTypeAsync(string namespaceId, string typeId);
+    QiType GetType(string tenantId, string namespaceId, string typeId);
+    Task<QiType> GetTypeAsync(string tenantId, string namespaceId, string typeId);
 
 *Http*
 
 ::
 
-    GET Qi/{namespaceId}/Types/{typeId}
+    GET Qi/{tenantId}/{namespaceId}/Types/{typeId}
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``typeId``
@@ -98,6 +102,8 @@ Returns a list of all types within a given namespace.
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``QiType entity``
@@ -126,19 +132,21 @@ Returns the type of the specified ``typeId`` within a namespace, or creates the 
 
 ::
 
-    QiType GetOrCreateType(string namespaceId, QiType entity);
-    Task<QiType> GetOrCreateTypeAsync(string namespaceId, QiType entity);
+    QiType GetOrCreateType(string tenantId, string namespaceId, QiType entity);
+    Task<QiType> GetOrCreateTypeAsync(string tenantId, string namespaceId, QiType entity);
 
 *Http*
 
 ::
 
-    POST Qi/{namespaceId}/Types
+    POST Qi/{tenantId}/{namespaceId}/Types
 
 
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``QiType entity``
@@ -166,19 +174,21 @@ Deletes a type from the specified namespace. Note that a type cannot be deleted 
 
 ::
 
-    void DeleteType(string namespaceId, string typeId);
-    Task DeleteTypeAsync(string namespaceId, string typeId);
+    void DeleteType(string tenantId, string namespaceId, string typeId);
+    Task DeleteTypeAsync(string tenantId, string namespaceId, string typeId);
 
 *Http*
 
 ::
 
-    DELETE Qi/{namespaceId}/Types/{typeId}
+    DELETE Qi/{tenantId}/{namespaceId}/Types/{typeId}
 
 
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``string typeId``
@@ -206,18 +216,20 @@ Updates the definition of a type. Note that a type cannot be updated if there ar
 
 ::
 
-    void UpdateType(string namespaceId, string typeId, QiType entity);
-    Task UpdateTypeAsync(string namespaceId, string typeId, QiType entity);
+    void UpdateType(string tenantId, string namespaceId, string typeId, QiType entity);
+    Task UpdateTypeAsync(string tenantId, string namespaceId, string typeId, QiType entity);
 
 *Http*
 
 ::
 
-    PUT Qi/{namespaceId}/Types/{typeId}
+    PUT Qi/{tenantId}/{namespaceId}/Types/{typeId}
 
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``string typeId``

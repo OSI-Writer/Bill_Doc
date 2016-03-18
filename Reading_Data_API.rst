@@ -20,11 +20,13 @@ Searches for data in a stream using the specified search mode.
 
 **Http**
 
-``GET Qi/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue?index={index}&mode={mode}``
+``GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/FindDistinctValue?index={index}&mode={mode}``
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -125,11 +127,13 @@ Returns an event from the specified stream at the specified index.
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue?index={index}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetDistinctValue?index={index}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``
@@ -202,11 +206,13 @@ Retrieves the first data event in a stream.
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetFirstValue
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``
@@ -244,11 +250,13 @@ Retrieves the last data event in a stream.
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetLastValue
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetLastValue
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``
@@ -294,20 +302,22 @@ Retrieves events from a stream based on a starting index and a requested number 
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&reversed={reversed}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&boundaryType={boundaryType}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boun GET daryType={boundaryType}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boun GET daryType={boundaryType}&filterExpression={filterExpression}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&reversed={reversed}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&boundaryType={boundaryType}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boun GET daryType={boundaryType}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boundaryType={boundaryType}&filterExpression={filterExpression}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&reversed={reversed}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&boundaryType={boundaryType}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boun GET daryType={boundaryType}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boun GET daryType={boundaryType}&filterExpression={filterExpression}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&reversed={reversed}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&count={count}&boundaryType={boundaryType}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boun GET daryType={boundaryType}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetRangeValues?startIndex={startIndex}&skip={skip}&count={count}&reversed={reversed}&boundaryType={boundaryType}&filterExpression={filterExpression}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``
@@ -492,11 +502,13 @@ Retrieves a specified data event from a stream.
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetValue?index={index}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetValue?index={index}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``
@@ -592,11 +604,13 @@ events between **startIndex** and **endIndex**.
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetValues?startIndex={startIndex}&endIndex={endIndex}&count={count}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetValues?startIndex={startIndex}&endIndex={endIndex}&count={count}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``
@@ -669,16 +683,18 @@ expressions <http://qi-docs.osisoft.com/en/latest/Filter%20Expressions/>`__
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&endIndex={endIndex}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType}&filterExpression={filterExpression}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&&endIndex={endIndex}&boundaryType={boundaryType}&count={count}&continuationToken={continuationToken}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&startBoundaryType={startBoundaryType}&endIndex={endIndex}&endBoundaryType={endBoundaryType}&filterExpression={filterExpression}&selectExpression={selectExpression}
-    GET Qi/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&&endIndex={endIndex}&boundaryType={boundaryType}&count={count}&continuationToken={continuationToken}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&endIndex={endIndex}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&endIndex={endIndex}&boundaryType={boundaryType}&filterExpression={filterExpression}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&&endIndex={endIndex}&boundaryType={boundaryType}&count={count}&continuationToken={continuationToken}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&startBoundaryType={startBoundaryType}&endIndex={endIndex}&endBoundaryType={endBoundaryType}&filterExpression={filterExpression}&selectExpression={selectExpression}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/GetWindowValues?startIndex={startIndex}&&endIndex={endIndex}&boundaryType={boundaryType}&count={count}&continuationToken={continuationToken}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``

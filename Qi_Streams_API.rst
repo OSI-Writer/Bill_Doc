@@ -17,16 +17,18 @@ Returns a QiStream object from the specified namespace that matches the specifie
 ::
 
     QiStream GetStream(string conatinerId, string streamId);
-    Task<QiStream> GetStreamAsync (string namespaceId, string streamId);
+    Task<QiStream> GetStreamAsync (string tenantId, string namespaceId, string streamId);
 
 *Http*
 
 ::
 
-    GET Qi/{namespaceId}/Streams/{streamId}
+    GET Qi/{tenantId}/{namespaceId}/Streams/{streamId}
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``typeId``
@@ -55,17 +57,19 @@ Returns all streams from the specified namespace.
 
 ::
 
-    IEnumerable<QiStream> GetStreams (string namespaceId);
-    Task<IEnumerable<QiStream>> GetStreamsAsync (string namespaceId);
+    IEnumerable<QiStream> GetStreams (string tenantId, string namespaceId);
+    Task<IEnumerable<QiStream>> GetStreamsAsync (string tenantId, string namespaceId);
 
 *Http*
 
 ::
 
-    GET Qi/{namespaceId}/Streams
+    GET Qi/{tenantId}/{namespaceId}/Streams
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 
@@ -99,10 +103,12 @@ Searches for and returns streams that fit search criteria
 
 ::
 
-    GET Qi/{namespaceId}/Streams  
+    GET Qi/{tenantId}/{namespaceId}/Streams  
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``searchText``
@@ -134,17 +140,19 @@ Returns a stream that matches the QiStream entity within the specified namespace
 
 ::
 
-    QiStream GetOrCreateStream (string namespaceId, QiStream entity);
-    Task<QiStream> GetOrCreateStreamAsync (string namespaceId, QiStream entity);
+    QiStream GetOrCreateStream (string tenantId, string namespaceId, QiStream entity);
+    Task<QiStream> GetOrCreateStreamAsync (string tenantId, string namespaceId, QiStream entity);
 
 *Http*
 
 ::
 
-    POST Qi/{namespaceId}/Streams
+    POST Qi/{tenantId}/{namespaceId}/Streams
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``entity``
@@ -184,17 +192,19 @@ that are omitted from the entity will remove the field from the stream if the fi
 
 ::
 
-    void UpdateStream(string namespaceId, string streamId, QiStream entity);
-    Task UpdateStreamAsync(string namespaceId, string streamId, QiStream entity);
+    void UpdateStream(string tenantId, string namespaceId, string streamId, QiStream entity);
+    Task UpdateStreamAsync(string tenantId, string namespaceId, string streamId, QiStream entity);
 
 *Http*
 
 ::
 
-    PUT Qi/{namespaceId}/Streams/{streamId}
+    PUT Qi/{tenantId}/{namespaceId}/Streams/{streamId}
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``streamId``
@@ -224,17 +234,19 @@ Deletes a stream that matches the QiStream entity within the specified namespace
 
 ::
 
-    void DeleteStream(string namespaceId, string streamId);
-    Task DeleteStreamAsync(string namespaceId, string streamId);
+    void DeleteStream(string tenantId, string namespaceId, string streamId);
+    Task DeleteStreamAsync(string tenantId, string namespaceId, string streamId);
 
 *Http*
 
 ::
 
-    DELETE Qi/{namespaceId}/Streams/{streamId}
+    DELETE Qi/{tenantId}/{namespaceId}/Streams/{streamId}
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``streamId``

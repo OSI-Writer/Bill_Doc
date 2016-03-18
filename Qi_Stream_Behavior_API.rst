@@ -14,8 +14,8 @@ Deletes a QiStream behavior from the specified namespace that matches the specif
 
 ::
 
-    void DeleteBehavior(string namespaceId, string behaviorId);
-    Task DeleteBehaviorAsync(string namespaceId, string behaviorId);
+    void DeleteBehavior(string tenantId, string namespaceId, string behaviorId);
+    Task DeleteBehaviorAsync(string tenantId, string namespaceId, string behaviorId);
 
 **Http**
 
@@ -25,8 +25,11 @@ Deletes a QiStream behavior from the specified namespace that matches the specif
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
+ 
 ``behaviorId``
   The ID of the behavior to delete; the behavior must not be associated with any streams.
 
@@ -52,8 +55,8 @@ Retrieves a QiStream behavior from the specified namespace that matches the spec
 
 ::
 
-    QiStreamBehavior GetBehavior(string namespaceId, string behaviorId);
-    Task<QiStreamBehavior> GetBehaviorAsync(string namespaceId, string behaviorId);
+    QiStreamBehavior GetBehavior(string tenantId, string namespaceId, string behaviorId);
+    Task<QiStreamBehavior> GetBehaviorAsync(string tenantId, string namespaceId, string behaviorId);
 
 **Http**
 
@@ -63,6 +66,8 @@ Retrieves a QiStream behavior from the specified namespace that matches the spec
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``behaviorId``
@@ -90,8 +95,8 @@ Retrieves all QiStream behaviors from a namespace.
 
 ::
 
-    IEnumerable<QiStreamBehavior> GetBehaviors(string namespaceId);
-    Task<IEnumerable<QiStreamBehavior>> GetBehaviorsAsync(string namespaceId);
+    IEnumerable<QiStreamBehavior> GetBehaviors(string tenantId, string namespaceId);
+    Task<IEnumerable<QiStreamBehavior>> GetBehaviorsAsync(string tenantId, string namespaceId);
 
 **Http**
 
@@ -101,6 +106,8 @@ Retrieves all QiStream behaviors from a namespace.
 
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``behaviorId``
@@ -128,8 +135,8 @@ Retrieves the QiStream behavior from a namespace, or creates the behavior if the
 
 ::
 
-    QiStreamBehavior GetOrCreateBehavior(string namespaceId, QiStreamBehavior entity);
-    Task<QiStreamBehavior> GetOrCreateBehaviorAsync(string namespaceId, QiStreamBehavior entity);
+    QiStreamBehavior GetOrCreateBehavior(string tenantId, string namespaceId, QiStreamBehavior entity);
+    Task<QiStreamBehavior> GetOrCreateBehaviorAsync(string tenantId, string namespaceId, QiStreamBehavior entity);
 
 **Http**
 
@@ -139,6 +146,8 @@ Retrieves the QiStream behavior from a namespace, or creates the behavior if the
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``entity``
@@ -168,8 +177,8 @@ the addition, removal, or change to this list.
 
 ::
 
-    void UpdateBehavior(string namespaceId, string behaviorId, QiStreamBehavior entity);
-    Task UpdateBehaviorAsync(string namespaceId, string behaviorId, QiStreamBehavior entity);
+    void UpdateBehavior(string tenantId, string namespaceId, string behaviorId, QiStreamBehavior entity);
+    Task UpdateBehaviorAsync(string tenantId, string namespaceId, string behaviorId, QiStreamBehavior entity);
 
 **Http**
 
@@ -178,6 +187,8 @@ the addition, removal, or change to this list.
     PUT Qi/{tenantId}/{namespaceId}/Behaviors/{behaviorId}	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request
 ``entity``

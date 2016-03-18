@@ -13,19 +13,21 @@ Inserts data into the specified stream.
 
 ::
 
-    void InsertValue<T>(string namespaceId, string streamId, T item);
-    Task InsertValueAsync<T>(string namespaceId, string streamId, T item);
+    void InsertValue<T>(string tenantId, string namespaceId, string streamId, T item);
+    Task InsertValueAsync<T>(string tenantId, string namespaceId, string streamId, T item);
 
 *Http*
 
 ::
 
-    POST Qi/{namespaceId}/Streams/{streamId}/Data/InsertValue
+    POST Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValue
 
 Content is serialized event of type T
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -58,16 +60,16 @@ Inserts items into the specified stream.
 
 ::
 
-    void InsertValues(string namespaceId, IDictionary<string, IQiValues> items);
-    void InsertValues<T>(string namespaceId, string streamId, IList<T> items);
-    Task InsertValuesAsync(string namespaceId, IDictionary<string, IQiValues > items);
-    Task InsertValuesAsync<T>(string namespaceId, string streamId, IList<T> items);
+    void InsertValues(string tenantId, string namespaceId, IDictionary<string, IQiValues> items);
+    void InsertValues<T>(string tenantId, string namespaceId, string streamId, IList<T> items);
+    Task InsertValuesAsync(string tenantId, string namespaceId, IDictionary<string, IQiValues > items);
+    Task InsertValuesAsync<T>(string tenantId, string namespaceId, string streamId, IList<T> items);
 
 **Http**
 
 ::
 
-    POST Qi/{namespaceId}/Streams/{streamId}/Data/InsertValues
+    POST Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/InsertValues
 
 	
 Content is serialized list of events of type T	
@@ -75,6 +77,8 @@ Content is serialized list of events of type T
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -110,20 +114,22 @@ Modifies the specified stream event,
 
 ::
 
-    void PatchValue(string namespaceId, string streamId, string selectExpression, T item);
-    Task PatchValueAsync(string namespaceId, string streamId, string selectExpression, T item);
+    void PatchValue(string tenantId, string namespaceId, string streamId, string selectExpression, T item);
+    Task PatchValueAsync(string tenantId, string namespaceId, string streamId, string selectExpression, T item);
 
 **Http**
 
 ::
 
-    PATCH Qi/{namespaceId}/Streams/{streamId}/Data/PatchValue?selectExpression={selectExpression}
+    PATCH Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValue?selectExpression={selectExpression}
 
 	
 Content is serialized patch property
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -168,20 +174,22 @@ Patches values of the selected fields for multiple events in the stream.
 
 ::
 
-    void PatchValues(string namespaceId, string streamId, string selectExpression, IList<T> items);
-    Task PatchValuesAsync(string namespaceId, string streamId, string selectExpression, IList<T> items);
+    void PatchValues(string tenantId, string namespaceId, string streamId, string selectExpression, IList<T> items);
+    Task PatchValuesAsync(string tenantId, string namespaceId, string streamId, string selectExpression, IList<T> items);
 
 **Http**
 
 ::
 
-    PATCH Qi/{namespaceId}/Streams/{streamId}/Data/PatchValues?selectExpression={selectExpression}
+    PATCH Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/PatchValues?selectExpression={selectExpression}
 
 Content is serialized list of patch property values
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -225,22 +233,24 @@ Removes the event at the index from the specified stream.
 
 ::
 
-    void RemoveValue(string namespaceId, string streamId, string index);
-    void RemoveValue<T1>(string namespaceId, string streamId, T1 index);
-    void RemoveValue<T1, T2>(string namespaceId, string streamId, Tuple<T1, T2> index);
-    Task RemoveValueAsync(string namespaceId, string streamId, string index);
-    Task RemoveValueAsync<T1>(string namespaceId, string streamId, T1 index);
-    Task RemoveValueAsync<T1, T2>(string namespaceId, string streamId, Tuple<T1, T2> index);
+    void RemoveValue(string tenantId, string namespaceId, string streamId, string index);
+    void RemoveValue<T1>(string tenantId, string namespaceId, string streamId, T1 index);
+    void RemoveValue<T1, T2>(string tenantId, string namespaceId, string streamId, Tuple<T1, T2> index);
+    Task RemoveValueAsync(string tenantId, string namespaceId, string streamId, string index);
+    Task RemoveValueAsync<T1>(string tenantId, string namespaceId, string streamId, T1 index);
+    Task RemoveValueAsync<T1, T2>(string tenantId, string namespaceId, string streamId, Tuple<T1, T2> index);
 
 **Http**
 
 ::
 
-    DELETE Qi/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
+    DELETE Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValue?index={index}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -274,22 +284,24 @@ Removes the event at each index from the specified stream.
 
 ::
 
-    void RemoveValues(string namespaceId, string streamId, IEnumerable<string> index);
-    void RemoveValues<T1>(string namespaceId, string streamId, IEnumerable<T1> index);
-    void RemoveValues<T1, T2>(string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
-    Task RemoveValuesAsync(string namespaceId, string streamId, IEnumerable<string> index);
-    Task RemoveValuesAsync<T1>(string namespaceId, string streamId, IEnumerable<T1> index);
-    Task RemoveValuesAsync<T1, T2>(string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
+    void RemoveValues(string tenantId, string namespaceId, string streamId, IEnumerable<string> index);
+    void RemoveValues<T1>(string tenantId, string namespaceId, string streamId, IEnumerable<T1> index);
+    void RemoveValues<T1, T2>(string tenantId, string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
+    Task RemoveValuesAsync(string tenantId, string namespaceId, string streamId, IEnumerable<string> index);
+    Task RemoveValuesAsync<T1>(string tenantId, string namespaceId, string streamId, IEnumerable<T1> index);
+    Task RemoveValuesAsync<T1, T2>(string tenantId, string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
 
 **Http**
 
 ::
 
-    DELETE Qi/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
+    DELETE Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveValues?index={index}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -325,22 +337,24 @@ Removes a range of values at and between the given indices.
 
 ::
 
-    void RemoveValues(string namespaceId, string streamId, IEnumerable<string> index);
-    void RemoveValues<T1>(string namespaceId, string streamId, IEnumerable<T1> index);
-    void RemoveValues<T1, T2>(string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
-    Task RemoveValuesAsync(string namespaceId, string streamId, IEnumerable<string> index);
-    Task RemoveValuesAsync<T1>(string namespaceId, string streamId, IEnumerable<T1> index);
-    Task RemoveValuesAsync<T1, T2>(string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
+    void RemoveValues(string tenantId, string namespaceId, string streamId, IEnumerable<string> index);
+    void RemoveValues<T1>(string tenantId, string namespaceId, string streamId, IEnumerable<T1> index);
+    void RemoveValues<T1, T2>(string tenantId, string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
+    Task RemoveValuesAsync(string tenantId, string namespaceId, string streamId, IEnumerable<string> index);
+    Task RemoveValuesAsync<T1>(string tenantId, string namespaceId, string streamId, IEnumerable<T1> index);
+    Task RemoveValuesAsync<T1, T2>(string tenantId, string namespaceId, string streamId, IEnumerable<Tuple<T1, T2>> index);
 
 **Http**
 
 ::
 
-    DELETE Qi/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
+    DELETE Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/RemoveWindowValues?startIndex={startIndex}&endIndex={endIndex}
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -378,20 +392,22 @@ Writes an item over an existing event in the specified stream.
 
 ::
 
-    void ReplaceValue<T>(string namespaceId, string streamId, T item);
-    Task ReplaceValueAsync<T>(string namespaceId, string streamId, T item);
+    void ReplaceValue<T>(string tenantId, string namespaceId, string streamId, T item);
+    Task ReplaceValueAsync<T>(string tenantId, string namespaceId, string streamId, T item);
 
 **Http**
 
 ::
 
-    PUT Qi/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
+    PUT Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValue
 
 Content is serialzied replacement object
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -422,22 +438,24 @@ Writes **items** over existing events in the specified stream.
 
 ::
 
-    void ReplaceValues(string namespaceId, IDictionary<string, IQiValues> items);
-    void ReplaceValues<T>(string namespaceId, string streamId, IList<T> items);
-    Task ReplaceValuesAsync(string namespaceId, IDictionary<string, IQiValues > items);
-    Task ReplaceValuesAsync<T>(string namespaceId, string streamId, IList<T> items);
+    void ReplaceValues(string tenantId, string namespaceId, IDictionary<string, IQiValues> items);
+    void ReplaceValues<T>(string tenantId, string namespaceId, string streamId, IList<T> items);
+    Task ReplaceValuesAsync(string tenantId, string namespaceId, IDictionary<string, IQiValues > items);
+    Task ReplaceValuesAsync<T>(string tenantId, string namespaceId, string streamId, IList<T> items);
 
 **Http**
 
 ::
 
-    PUT Qi/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
+    PUT Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/ReplaceValues
 
 Content is serialized list of replacement values
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -473,20 +491,22 @@ Writes **item** to the specified stream.
 
 ::
 
-    void UpdateValue<T>(string namespaceId, string streamId, T item);
-    Task UpdateValueAsync<T>(string namespaceId, string streamId, T item);
+    void UpdateValue<T>(string tenantId, string namespaceId, string streamId, T item);
+    Task UpdateValueAsync<T>(string tenantId, string namespaceId, string streamId, T item);
 
 **Http**
 
 ::
 
-    PUT Qi/{namespaceId}/Streams/{streamId}/Data/UpdateValue
+    PUT Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValue
 
 Content is serialized updated value
 
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
@@ -519,22 +539,24 @@ Writes items to the specified stream.
 
 ::
 
-    void UpdateValues(string namespaceId, IDictionary<string, IQiValues > items);
-    void UpdateValues<T>(string namespaceId, string streamId, IList<T> items);
-    Task UpdateValuesAsync(string namespaceId, IDictionary<string, IQiValues > items);
-    Task UpdateValuesAsync<T>(string namespaceId, string streamId, IList<T> items);
+    void UpdateValues(string tenantId, string namespaceId, IDictionary<string, IQiValues > items);
+    void UpdateValues<T>(string tenantId, string namespaceId, string streamId, IList<T> items);
+    Task UpdateValuesAsync(string tenantId, string namespaceId, IDictionary<string, IQiValues > items);
+    Task UpdateValuesAsync<T>(string tenantId, string namespaceId, string streamId, IList<T> items);
 
 **Http**
 
 ::
 
-    PUT Qi/{namespaceId}/Streams/{streamId}/Data/UpdateValues
+    PUT Qi/{tenantId}/{namespaceId}/Streams/{streamId}/Data/UpdateValues
 
 	
 Content is serialized list of updated values	
 	
 **Parameters**
 
+``string tenantID``
+  The tenant identifier for the request
 ``string namespaceId``
   The namespace identifier for the request.
 ``string streamId``
