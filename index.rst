@@ -1,9 +1,9 @@
 Welcome
 =======
 
-Qi is a highly flexible cloud-based sequential data historian that can
-be used to store, retrieve and analyze data. Users create and write data
-to streams using a simple REST API. The streams can store simple or
+Qi is a highly flexible cloud-based sequential data historian that is
+used to store, retrieve, and analyze data. You create and write data
+to streams using a simple REST API. The streams are able to store simple or
 complex data types to suit the application needs. An assortment of
 methods with customizable behaviors are available to read data and
 easily obtain needed information.
