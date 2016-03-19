@@ -1,4 +1,4 @@
-Qi Streams
+QiStreams
 ==========
 
 A QiStream is the fundamental unit of storage in Qi. Each stream
