@@ -1,4 +1,4 @@
-Qi Types
+QiTypes
 ########
 
 A QiType is used by Qi to store definable data types. A QiType
