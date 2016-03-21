@@ -9,7 +9,7 @@ methods with customizable behaviors are available to read data and
 easily obtain needed information.
 
 Getting started
-===============
+---------------
 
 Familiarization with Qi and its capabilities is easy. Introductory
 information such as API refernces can be found in
@@ -32,13 +32,13 @@ The video below will help you get started with Qi:
    <a href="http://www.osisoft.com/Templates/item-abstract.aspx?id=13014" target="_blank"><img src="http://cdn.osisoft.com/corp/en/media/videos/Getting%20Started%20with%20Qi.jpg"/></a>   
 
 Using the samples
-=================
+-----------------
 
 Code samples that will help get you going quicky are accessible via the
 Qi-Samples repository on GitHub.
 
 Getting help
-============
+------------
 
 During the Qi preview, the OSIsoft team will be available via email to
 help with any problems you may experience. To get help or provide
